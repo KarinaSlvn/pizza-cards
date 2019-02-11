@@ -1,0 +1,11 @@
+const cards = document.getElementsByClassName('cards')[0];
+let arrPizza = [];
+const buttonGrid = document.getElementById('sort__grid');
+const buttonColumn = document.getElementById('sort__column');
+const filter = document.getElementsByClassName('filters')[0];
+const ingredientSearch = document.getElementById('ingredient__search');
+const priceSearchUp = document.getElementById('price__search-up');
+const priceSearchDown = document.getElementById('price__search-down');
+const nameSearchUp = document.getElementById('name__search-up');
+const nameSearchDown = document.getElementById('name__search-down');
+let selectedCard;
