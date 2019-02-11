@@ -22,7 +22,7 @@ window.onload = () => {
         else if (card) showImg(card);
     };
 
-    ingredientSearch.addEventListener('click', () => filters('ingredient', 'ingredient'));
+    ingredientSearch.addEventListener('click', () => filterCards());
     priceSearchUp.addEventListener('click', () => sorting(sortPriceIncrease));
     priceSearchDown.addEventListener('click', () => sorting(sortPriceDecrease));
     nameSearchUp.addEventListener('click', () => sorting(sortNameIncrease));

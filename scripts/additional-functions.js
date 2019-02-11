@@ -9,3 +9,12 @@ const randomInteger = (min, max) => {
 const closest = (node, className) => {
     return !!node.classList ? node.classList.contains(className) ? node : closest(node.parentNode, className) : null;
 };
+
+const removeChildren = (node) => {
+    if (node.hasChildNodes()) {
+        node.removeChild(node.lastChild);
+        return removeChildren(node);
+    } else {
+        return node;
+    }
+};

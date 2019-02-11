@@ -18,12 +18,13 @@ const Desc = ({name, ingredients, calorific, price}) => (
             <p class="price">${price}грн.</p>
         </div>`);
 
-const renderCards = () => {
-    cards.classList.remove('col');
-    if (cards.hasChildNodes()) {
+const renderCards = (pizzas = arrPizza) => {
+    const clearedCardsWrap = removeChildren(cards);
+    clearedCardsWrap.classList.remove('col');
+    if (clearedCardsWrap.hasChildNodes()) {
         [...document.getElementsByClassName('card')].forEach((item) => item.remove());
     }
-    arrPizza.forEach((pizza, index) => {
+    pizzas.forEach((pizza, index) => {
         const card = `<div class="card" data-index=${index}>
             <div class="flipper">
                 <div class="back">
@@ -37,7 +38,7 @@ const renderCards = () => {
                 </div>
             </div>
         </div>`;
-        cards.appendChild(parseHTML(card));
+        clearedCardsWrap.appendChild(parseHTML(card));
     });
 };
 const renderCardsForColumn = () => {
