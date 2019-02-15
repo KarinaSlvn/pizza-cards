@@ -2,6 +2,7 @@ const createArrPizza = () => {
     for (let i = 0; i < 18; i++) {
         arrPizza.push(new Pizza(arrNames[i], products[i], arrImg[i]));
     }
+    arrPizza = [...getCustomPizzas(), ...arrPizza]
 };
 
 const Ingredients = (ingredients) => {
@@ -18,6 +19,21 @@ const Desc = ({name, ingredients, calorific, price}) => (
             <p class="price">${price}грн.</p>
         </div>`);
 
+const Card = (pizza, index) => (
+    `<div class="card" data-index=${index}>
+        <div class="flipper">
+            <div class="back">
+                <div class="card__img">
+                    <img src = ${pizza.img}  alt="pizza">
+                </div>
+                ${Desc(pizza)}
+            </div>
+            <div class="front">
+                <p class="name">${pizza.name}</p>
+            </div>
+        </div>
+    </div>`);
+
 const renderCards = (pizzas = arrPizza) => {
     const clearedCardsWrap = removeChildren(cards);
     clearedCardsWrap.classList.remove('col');
@@ -25,19 +41,7 @@ const renderCards = (pizzas = arrPizza) => {
         [...document.getElementsByClassName('card')].forEach((item) => item.remove());
     }
     pizzas.forEach((pizza, index) => {
-        const card = `<div class="card" data-index=${index}>
-            <div class="flipper">
-                <div class="back">
-                    <div class="card__img">
-                        <img src = ${pizza.img}  alt="pizza">
-                    </div>
-                    ${Desc(pizza)}
-                </div>
-                <div class="front">
-                    <p class="name">${pizza.name}</p>
-                </div>
-            </div>
-        </div>`;
+        const card = Card(pizza, index);
         clearedCardsWrap.appendChild(parseHTML(card));
     });
 };

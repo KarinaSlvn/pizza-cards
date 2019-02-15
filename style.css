@@ -31,7 +31,7 @@
 
 }
 
-.sort__description {
+.sort__description, .add-card__description {
     text-transform: uppercase;
     font-weight: bold;
     color: #404040;
@@ -60,7 +60,8 @@
     perspective: 1000px;
     background-color: transparent;
 }
-.flipper{
+
+.flipper {
     position: relative;
     width: 100%;
     height: 100%;
@@ -78,22 +79,26 @@
     height: 100%;
     backface-visibility: hidden;
 }
+
 .front {
     z-index: 2;
     border: 2px solid gray;
     box-shadow: 5px 4px 13px -2px rgba(0, 0, 0, 0.75);
 }
-.front .name{
+
+.front .name {
     color: #585858;
     text-align: center;
     line-height: 450px;
 }
+
 .back {
     border: 2px solid gray;
     transform: rotateY(180deg);
     z-index: 1;
     box-shadow: 5px 4px 13px -2px rgba(0, 0, 0, 0.75);
 }
+
 .card__img {
     width: 50%;
     height: auto;
@@ -126,7 +131,7 @@
     justify-content: center;
 }
 
-.input_search {
+.input_search, #name-users-pizza {
     border-radius: 5px;
     border: 2px solid #484848;
     width: 200px;
@@ -164,7 +169,64 @@
     align-items: center;
 }
 
-.remove{
+.remove {
     font-size: 18px;
     margin-left: 5px;
+}
+
+.add-card {
+    text-align: center;
+    margin-bottom: 20px;
+    display: none;
+}
+
+#add-card__button {
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    background: rgba(72, 72, 72, 0);
+    border: 2px solid #525252;
+    padding: 3px;
+    width: 40px;
+    color: #404040;
+    border-radius: 20px;
+    cursor: pointer;
+}
+#add-card__button:hover{
+    background: #525252;
+    color: white;
+}
+#create-name-pizza {
+    font-size: 20px;
+    color: #404040;
+    background: rgba(82, 82, 82, 0);
+    border: 2px solid #282828;
+    padding: 2px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+#create-name-pizza:hover{
+    background: #404040;
+    color: white;
+}
+.ingredients {
+    display: flex;
+    flex-flow: wrap;
+    margin-top: 10px;
+}
+
+#submit-ingredients {
+    margin-left: 5px;
+    background: rgba(40, 40, 40, 0);
+    border: 2px solid gray;
+    color: #282828;
+    font-size: 18px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+#submit-ingredients:hover{
+    background: gray;
+    color: white;
 }

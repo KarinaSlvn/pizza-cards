@@ -9,3 +9,4 @@ const arrNames = ['Маргарита', 'Пеперони', 'Цезарь', 'С�
 const arrImg = ['img/pizza-1.jpg', 'img/pizza-2.jpg', 'img/pizza-3.jpg', 'img/pizza-1.jpg', 'img/pizza-2.jpg', 'img/pizza-3.jpg',
     'img/pizza-1.jpg', 'img/pizza-2.jpg', 'img/pizza-3.jpg', 'img/pizza-1.jpg', 'img/pizza-2.jpg', 'img/pizza-3.jpg',
     'img/pizza-1.jpg', 'img/pizza-2.jpg', 'img/pizza-3.jpg', 'img/pizza-1.jpg', 'img/pizza-2.jpg', 'img/pizza-3.jpg'];
+

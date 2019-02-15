@@ -8,4 +8,5 @@ const priceSearchUp = document.getElementById('price__search-up');
 const priceSearchDown = document.getElementById('price__search-down');
 const nameSearchUp = document.getElementById('name__search-up');
 const nameSearchDown = document.getElementById('name__search-down');
+const addCardButton = document.getElementById('add-card__button');
 let selectedCard;

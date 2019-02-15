@@ -7,7 +7,9 @@ const randomInteger = (min, max) => {
     return result === 0 ? randomInteger(min, max) : result;
 };
 const closest = (node, className) => {
-    return !!node.classList ? node.classList.contains(className) ? node : closest(node.parentNode, className) : null;
+    return !!node && !!node.classList
+        ? node.classList.contains(className) ? node : closest(node.parentNode, className)
+        : null;
 };
 
 const removeChildren = (node) => {
