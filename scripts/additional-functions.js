@@ -20,3 +20,15 @@ const removeChildren = (node) => {
         return node;
     }
 };
+
+const getFromLS = (key) => JSON.parse(localStorage.getItem(key)) || [];
+
+const saveInLS = (pizza, key) => {
+    localStorage.setItem(key, JSON.stringify([...getFromLS(key), pizza]));
+};
+
+const countOrders = () => {
+    const selectedPizza = JSON.parse(localStorage.getItem('selectedPizzas'));
+    const countOrder = selectedPizza.length;
+    countPizzas.innerText = countOrder;
+};

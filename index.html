@@ -9,45 +9,62 @@
 </head>
 <body>
 <main>
-    <section class="sorts">
-        <p class="sort__description">Выберите каким образом отобразить меню на странице!</p>
-        <div class="sorts__buttons">
-            <button class="sorts__button" id="sort__grid"><i class="fas fa-grip-horizontal"></i></button>
-            <button class="sorts__button" id="sort__column"><i class="fas fa-bars"></i></button>
-        </div>
-    </section>
-    <section class="filters">
-        <div class="filters__ingredient">
-            <input type="text" class="input_search" id="ingredient" placeholder="Например, Сыр">
-            <button class="button__search" id="ingredient__search"><i class="fas fa-search"></i></button>
-        </div>
-        <div class="filters__column">
-            <div class="filters__price">
-                Price:
-                <div class="group-buttons">
-                    <button id="price__search-up" class="button__search"><i class="fas fa-sort-up"></i></button>
-                    <button id="price__search-down" class="button__search"><i class="fas fa-sort-down"></i></button>
+    <div class="ordering-page">
+        <section class="sorts">
+            <p class="sort__description">Выберите каким образом отобразить меню на странице!</p>
+            <div class="sorts__buttons">
+                <button class="sorts__button" id="sort__grid"><i class="fas fa-grip-horizontal"></i></button>
+                <button class="sorts__button" id="sort__column"><i class="fas fa-bars"></i></button>
+            </div>
+        </section>
+        <section class="filters">
+            <div class="filters__ingredient">
+                <input type="text" class="input_search" id="ingredient" placeholder="Например, Сыр">
+                <button class="button__search" id="ingredient__search"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="filters__column">
+                <div class="filters__price">
+                    Price:
+                    <div class="group-buttons">
+                        <button id="price__search-up" class="button__search"><i class="fas fa-sort-up"></i></button>
+                        <button id="price__search-down" class="button__search"><i class="fas fa-sort-down"></i></button>
+                    </div>
+                </div>
+                <div class="filters__name">
+                    Name:
+                    <div class="group-buttons">
+                        <button id="name__search-up" class="button__search"><i class="fas fa-sort-up"></i></button>
+                        <button id="name__search-down" class="button__search"><i class="fas fa-sort-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="filters__name">
-                Name:
-                <div class="group-buttons">
-                    <button id="name__search-up" class="button__search"><i class="fas fa-sort-up"></i></button>
-                    <button id="name__search-down" class="button__search"><i class="fas fa-sort-down"></i></button>
-                </div>
-            </div>
+        </section>
+        <section class="add-card">
+            <p class="add-card__description">Вы также можете создать свою пиццу</p>
+            <button id="add-card__button">+</button>
+        </section>
+        <section class="cards"></section>
+        <section class="basket">
+        <button id="basket-icon"><i class="fas fa-shopping-basket"></i></button>
+        <div class="count-orders"></div>
+        </section>
+    </div>
+    <div class="basket-page">
+        <section class="header">
+            <h3 class="basket-page__description">Страница ваших заказов</h3>
+            <button id="button__main-page" title="Вернуться на главную"><i class="fas fa-arrow-left"></i></button>
+        </section>
+        <section class="selected__cards"></section>
+        <div class="sum-order">
         </div>
-    </section>
-    <section class="add-card">
-        <p class="add-card__description">Вы также можете создать свою пиццу</p>
-        <button id="add-card__button">+</button>
-    </section>
-    <section class="cards"></section>
+        <button class="sendOrder">Оформить заказ</button>
+    </div>
 </main>
 <script src="scripts/data.js"></script>
 <script src="scripts/variables.js"></script>
 <script src="scripts/additional-functions.js"></script>
 <script src="scripts/class.js"></script>
+<script src="scripts/basket.js"></script>
 <script src="scripts/creating-cards.js"></script>
 <script src="scripts/filtration.js"></script>
 <script src="scripts/sorting.js"></script>

@@ -31,7 +31,7 @@
 
 }
 
-.sort__description, .add-card__description {
+.sort__description, .add-card__description, .basket-page__description {
     text-transform: uppercase;
     font-weight: bold;
     color: #404040;
@@ -92,6 +92,10 @@
     line-height: 450px;
 }
 
+.selected-card .front .name {
+    line-height: 1
+}
+
 .back {
     border: 2px solid gray;
     transform: rotateY(180deg);
@@ -131,7 +135,7 @@
     justify-content: center;
 }
 
-.input_search, #name-users-pizza {
+.input_search, .name-custom-pizza {
     border-radius: 5px;
     border: 2px solid #484848;
     width: 200px;
@@ -216,17 +220,96 @@
     margin-top: 10px;
 }
 
-#submit-ingredients {
-    margin-left: 5px;
-    background: rgba(40, 40, 40, 0);
-    border: 2px solid gray;
-    color: #282828;
-    font-size: 18px;
-    padding: 3px;
+
+.submit-ingredients:hover,.ordering-pizza:hover,.sendOrder:hover{
+    background: gray;
+    color: white;
     cursor: pointer;
 }
 
-#submit-ingredients:hover{
-    background: gray;
+.ordering-pizza, .submit-ingredients{
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    font-size: 16px;
+    padding: 3px;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0);
+    border: 2px solid gray;
+    color: #545454;
+}
+
+#basket-icon{
+    position: inherit;
+    font-size: 40px;
+    background: rgba(84,84,84,0);
+    border: none;
+    cursor: pointer;
+}
+
+.basket-page{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+#button__main-page{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.remove-pizza{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    color: #636363;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.selected__cards{
+    display: flex;
+    flex-flow: wrap;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.sum-order{
+    margin-top: 10px;
+    text-transform: uppercase;
+    color: #565656;
+}
+
+.basket{
+    position: absolute;
+    top: 20px;
+    right: 100px;
+}
+
+.count-orders{
+    width: 15px;
+    height: 15px;
+    background: #a7081d;
+    border-radius: 7px;
+    position: inherit;
     color: white;
+    text-align: center;
+}
+.sendOrder{
+    margin: 10px 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: gray;
+    background: none;
+    border: 2px solid gray;
+    padding: 5px;
+    cursor: pointer;
 }

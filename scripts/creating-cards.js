@@ -2,31 +2,34 @@ const createArrPizza = () => {
     for (let i = 0; i < 18; i++) {
         arrPizza.push(new Pizza(arrNames[i], products[i], arrImg[i]));
     }
-    arrPizza = [...getCustomPizzas(), ...arrPizza]
+    arrPizza = [...getFromLS('customPizzas'), ...arrPizza];
 };
 
-const Ingredients = (ingredients) => {
-    return ingredients.reduce((acc, {name}, i) => {
-        return acc + `<p class="ingredient" data-index=${i}>${name}<a class="remove">&times</a></p>`;
-    }, ``);
+const Ingredients = (ingredients, readOnly = false) => {
+    return ingredients.reduce((acc, {name}, i) => (
+        acc + `<p class="ingredient" data-index=${i}>${name}${!readOnly ? `<a class="remove">&times</a></p>` : ''}`), '');
 };
 
-const Desc = ({name, ingredients, calorific, price}) => (
+const Desc = ({name, ingredients, calorific, price}, readOnly = false) => (
     `<div class="card__description">
             <p class="name">${name}</p>
-            ${Ingredients(ingredients)}
+            ${Ingredients(ingredients, readOnly)}
             <p class="calorific">${calorific}ккл.</p>
             <p class="price">${price}грн.</p>
-        </div>`);
+    </div>`);
+
+const CardImg = ({name, img}) => (
+    ` <div class="card__img">
+        <img src = ${img}  alt=${name}>
+    </div>`);
 
 const Card = (pizza, index) => (
     `<div class="card" data-index=${index}>
         <div class="flipper">
             <div class="back">
-                <div class="card__img">
-                    <img src = ${pizza.img}  alt="pizza">
-                </div>
+                ${CardImg(pizza)}
                 ${Desc(pizza)}
+                <button class="ordering-pizza">Добавить в корзину</button>
             </div>
             <div class="front">
                 <p class="name">${pizza.name}</p>
@@ -34,30 +37,37 @@ const Card = (pizza, index) => (
         </div>
     </div>`);
 
-const renderCards = (pizzas = arrPizza) => {
-    const clearedCardsWrap = removeChildren(cards);
+const SelectedCard = (pizza, index) => (
+    `<div class="card selected-card" data-index=${index}>
+        <div class="front">
+            ${CardImg(pizza)}
+            ${Desc(pizza, true)}
+            <button class="remove-pizza"><i class="fas fa-times"></i></button>
+        </div>
+    </div>`);
+
+const renderPizzas = (pizzas, wrapper, cardComponent) => {
+    const clearedCardsWrap = removeChildren(wrapper);
     clearedCardsWrap.classList.remove('col');
-    if (clearedCardsWrap.hasChildNodes()) {
-        [...document.getElementsByClassName('card')].forEach((item) => item.remove());
-    }
-    pizzas.forEach((pizza, index) => {
-        const card = Card(pizza, index);
-        clearedCardsWrap.appendChild(parseHTML(card));
-    });
+    pizzas.forEach((pizza, index) => clearedCardsWrap.appendChild(parseHTML(cardComponent(pizza, index))));
 };
+
+const renderCards = (pizzas = arrPizza) => renderPizzas(pizzas, cards, Card);
+
+const renderOrderingCards = (pizzas = getFromLS('selectedPizzas')) => renderPizzas(pizzas, orderingBlock, SelectedCard);
+
 const renderCardsForColumn = () => {
     renderCards();
     const card = [...document.getElementsByClassName('card')];
-    card.forEach((item) => {
-            item.style.display = 'flex';
-            item.style.width = '400px';
-        }
-    );
     const ingredients = [...document.getElementsByClassName('ingredient')];
-    ingredients.forEach((item) => item.style.display = 'none');
     const calorie = [...document.getElementsByClassName('calorific')];
-    calorie.forEach((item) => item.style.display = 'none');
     const cardDescription = [...document.getElementsByClassName('card__description')];
+    card.forEach((item) => {
+        item.style.display = 'flex';
+        item.style.width = '400px';
+    });
+    ingredients.forEach((item) => item.style.display = 'none');
+    calorie.forEach((item) => item.style.display = 'none');
     cardDescription.forEach((item) => item.style.display = 'flex');
     cards.classList.add('col');
 };
