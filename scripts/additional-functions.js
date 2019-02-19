@@ -29,6 +29,10 @@ const saveInLS = (pizza, key) => {
 
 const countOrders = () => {
     const selectedPizza = JSON.parse(localStorage.getItem('selectedPizzas'));
-    const countOrder = selectedPizza.length;
-    countPizzas.innerText = countOrder;
+    let countOrder;
+    if(selectedPizza === null)countPizzas.innerText = '0';
+    else{
+        countOrder = selectedPizza.length;
+        countPizzas.innerText = countOrder;
+    }
 };
