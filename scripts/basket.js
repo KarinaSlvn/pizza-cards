@@ -20,7 +20,8 @@ const removePizzaFromBasket = (node) => {
     currentCard.remove();
     localStorage.clear();
     localStorage.setItem('selectedPizzas',JSON.stringify(selectedPizza),)
-    sumOrders()
+    sumOrders();
+    countOrders();
 };
 
 const sumOrders =()=>{
