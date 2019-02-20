@@ -31,7 +31,6 @@ window.onload = () => {
     orderingBlock.onclick = ({target}) => {
         const removeIcon = closest(target, 'remove-pizza');
         if (removeIcon) removePizzaFromBasket(removeIcon);
-
     };
     ingredientSearch.addEventListener('click', () => filterCards());
     priceSearchUp.addEventListener('click', () => sorting(sortPriceIncrease));
@@ -43,5 +42,9 @@ window.onload = () => {
         showPage(orderingPage, basketPage);
         basketPage.style.display = 'flex';
     });
-    buttonOnHome.addEventListener('click', () => showPage(basketPage, orderingPage));
+    buttonOnHome.addEventListener('click', () => {
+        showPage(basketPage, orderingPage);
+        countOrders();
+    });
+    sendOrder.addEventListener('click', () => removeAllOrders());
 };

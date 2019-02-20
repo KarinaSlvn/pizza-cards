@@ -27,12 +27,4 @@ const saveInLS = (pizza, key) => {
     localStorage.setItem(key, JSON.stringify([...getFromLS(key), pizza]));
 };
 
-const countOrders = () => {
-    const selectedPizza = JSON.parse(localStorage.getItem('selectedPizzas'));
-    let countOrder;
-    if(selectedPizza === null)countPizzas.innerText = '0';
-    else{
-        countOrder = selectedPizza.length;
-        countPizzas.innerText = countOrder;
-    }
-};
+const countOrders = () => countPizzas.innerText = getFromLS('selectedPizzas').length;

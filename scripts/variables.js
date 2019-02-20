@@ -17,4 +17,5 @@ const basketButton = document.getElementById('basket-icon');
 const buttonOnHome = document.getElementById('button__main-page');
 const sumOrder = document.getElementsByClassName('sum-order')[0];
 const countPizzas = document.getElementsByClassName('count-orders')[0];
+const sendOrder = document.getElementsByClassName('sendOrder')[0];
 let selectedCard;
